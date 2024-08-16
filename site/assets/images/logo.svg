@@ -1,0 +1,13 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <text font-weight="bold" stroke="#000" transform="matrix(0.897303 0 0 1.18714 -26.9015 -2.45904)" xml:space="preserve" text-anchor="start" font-family="'Dancing Script'" font-size="32" id="svg_11" y="32.59949" x="32.28517" fill="url(#svg_29)">FW</text>
+ </g>
+ <defs>
+  <linearGradient y2="0" x2="1" y1="0" x1="0" id="svg_29">
+   <stop offset="0" stop-opacity="0.99609" stop-color="#00ff00"/>
+   <stop offset="0.26563" stop-opacity="0.98047" stop-color="#00d4ff"/>
+   <stop offset="1" stop-opacity="0.98828" stop-color="#ff00fa"/>
+  </linearGradient>
+ </defs>
+</svg>

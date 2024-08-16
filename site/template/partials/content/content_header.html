@@ -1,0 +1,52 @@
+<div class="d-flex container-fluid content-header">
+  <nav class="navbar navbar-expand-md flex-fill">
+    <a class="navbar-brand" href="#" id="toggle-sidebar">
+      <i class="bi bi-list"></i>
+    </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        {% for key, category in pairs(content_header) do%}
+        {% if not category.children or #category.children ==0 then%}
+        <li class="nav-item">
+          <a class="nav-link" href="{{category.url}}">
+            <i class="{{category.icon}}"></i>
+            <span>{{category.name}}</span>
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{{category.url}}" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="{{category.icon}}"></i>
+            <span>{{category.name}}</span>
+          </a>
+          <ul class="dropdown-menu">
+            {% for child_key, child_category in pairs(category.children) do%}
+            <li>
+              <a class="dropdown-item" href="{{child_category.url}}">
+                <i class="{{child_category.icon}}"></i>
+                <span>{{child_category.name}}</span>
+              </a>
+            </li>
+            {% end %}
+          </ul>
+        </li>
+        {% end %}
+        {% end %}
+      </ul>
+    </div>
+    <div class="d-md-none">
+      {(partials/content/logo.html, {title = site.title})}
+    </div>
+    <div class="navbar-brand">
+      <ul class="navbar-nav">
+        <li class="nav-item d-none d-lg-block">
+          <a class ="nav-link" href="https://hitokoto.cn/?uuid={{hitokoto.uuid}}" target="_blank" id="hitokoto_text">{{hitokoto.hitokoto}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="modal" href="#search-modal"><i class="bi bi-search"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

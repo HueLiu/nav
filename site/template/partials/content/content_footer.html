@@ -1,0 +1,34 @@
+<div class="d-flex flex-column footer">
+  <div class="d-flex flex-column footer-tools">
+    <a class="btn rounded-circle d-none go-to-top">
+      <i class="bi bi-chevron-up"></i>
+    </a>
+    <a class="btn rounded-circle" target="_blank" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="联系我们"
+      href="mailto:{{site.email}}">
+      <i class="bi bi-envelope-at-fill"></i>
+    </a>
+    {% if site.theme == 'light' then %}
+    <a class="btn rounded-circle switch-theme" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="夜间模式">
+      <i class="bi bi-moon-stars-fill"></i>
+    </a>
+    {% else %}
+    <a class="btn rounded-circle switch-theme" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="日间模式">
+      <i class="bi bi-sun-fill"></i>
+    </a>
+    {% end %}
+  </div>
+  <div class="d-flex flex-column justify-content-center align-items-center footer-inner">
+    <div class="description">
+      <span>© {{site.yearRange}} By </span>
+      <a href="https://github.com/HueLiu/nav" target="_blank">Hue Liu Nav</a>
+      <span> | </span>
+      <a href="https://finalwine.top" target="_blank">FinalWine</a>
+      <span> | </span>
+      <a href="https://openresty.org" target="_blank">OpenResty</a>
+    </div>
+    <div class="announce">
+      <span>本站内容源自互联网，如有内容侵犯了你的权益，请联系删除相关内容，联系邮箱：</span>
+      <a href="mailto:{{site.email}}?subject={{site.title}}意见反馈" target="_blank">{{site.email}}</a>
+    </div>
+  </div>
+</div>

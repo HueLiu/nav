@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Ma+Shan+Zheng&family=Pacifico&family=Courgette&display=swap');
+
+:root {
+  --bs-body-bg: #f9f9f9;
+  --bs-body-color: #282a2d;
+  --main-bg: #fff;
+  --sidebar-bg: #f9f9f9;
+  --popover-bg: #f0f2f4;
+  --popover-special-bg: #dadbdd;
+  --content-bg: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  --a-hover: #f1404b;
+}
+
+[data-bs-theme=dark] {
+  --bs-body-bg: #1b1d1f;
+  --bs-body-color: #c6c9cf;
+  --main-bg: #2c2e2f;
+  --sidebar-bg: #2c2e2f;
+  --popover-bg: #2c2e2f;
+  --popover-special-bg: #151618;
+  --content-bg: linear-gradient(45deg, rgba(134, 24, 219, 0.2) 0%, rgb(215, 17, 255, 0.2) 50%, rgb(70, 15, 221, 0.2) 100%);
+  --a-hover: #fff;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  transition: all .3s ease-in-out;
+  transition: width .15s ease-in-out;
+}
+
+body {
+  font-size: 0.875rem;
+}
+
+a {
+  color: var(--bs-body-color) !important;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--a-hover) !important;
+}
+
+.container-fluid {
+  --bs-gutter-x: 0;
+}
+
+.nav {
+  gap: 0.25rem 0;
+}
+
+.dropdown-menu {
+  --bs-dropdown-min-width: 5rem;
+  --bs-dropdown-font-size: 0.875rem;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+.nav-link {
+  --bs-nav-link-font-size: 0.875rem;
+  --bs-nav-link-font-weight: 400;
+}
+
+@media (min-width: 75rem) {
+  .col-xl-5a {
+    flex: 0 0 auto;
+    width: 20%;
+  }
+}
+
+@media (min-width: 90rem) {
+  .col-xl-5a {
+    flex: 0 0 auto;
+    width: calc(100% / 6);
+  }
+}

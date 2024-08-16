@@ -1,0 +1,16 @@
+<ul class='navbar-nav flex-column'>
+  <li class='nav-item popover-first'>
+    <a class='nav-link sidebar-item' data-id='category-{{category.code}}'>
+      <span class='menu-text'>{{category.name}}</span>
+    </a>
+  </li>
+  {% if category.children then %}
+  {% for key, child_category in pairs(category.children) do %}
+  <li class='nav-item'>
+    <a class='nav-link sidebar-item' data-id='category-{{category.code}}-{{child_category.code}}'>
+      <span class='menu-text'>{{child_category.name}}</span>
+    </a>
+  </li>
+  {% end %}
+  {% end %}
+</ul>

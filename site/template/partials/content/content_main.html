@@ -1,0 +1,82 @@
+<div class="d-flex flex-column container-fluid content-main">
+  {% for key, category in ipairs(categories) do %}
+  <div class="d-flex flex-column container-fluid category-links" id="category-{{category.code}}">
+    <div class="title">
+      <i class="{{category.icon}}"></i>
+      <span>{{category.name}}</span>
+    </div>
+    {% if (not category.children or #category.children == 0) and category.links then %}
+    <div class="row links">
+      {% for link_key, link in pairs(category.links) do %}
+      <div class="col-6 col-md-4 col-lg-3 col-xl-5a col-xxl-6a">
+        <a class="d-flex link" data-link="{{link.url}}" data-bs-trigger="hover" data-bs-toggle="tooltip"
+          data-bs-placement="bottom" data-bs-title="{{link.description}}">
+          <img src="{{link.icon}}" alt="{{link.name}}">
+          <div class="flex-fill d-flex flex-column link-body">
+            <span class="link-name">{{link.name}}</span>
+            <span class="link-description">{{link.description}}</span>
+          </div>
+          <i class="bi bi-arrow-right-circle open-link" data-link="{{link.url}}" data-bs-trigger="click hover focus"
+            data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="直达"></i>
+        </a>
+      </div>
+      {% end %}
+    </div>
+    {% else %}
+    <div class="navbar">
+      <ul class="nav navbar-nav flex-row">
+        {% for child_key, child_category in pairs(category.children) do%}
+        <li class="nav-item">
+          <a class="nav-link {% if child_key == 1 then %} active{% end %}"
+            id="category-{{category.code}}-{{child_category.code}}" data-bs-toggle="pill"
+            href="#tab-{{category.code}}-{{child_category.code}}">
+            <span>{{child_category.name}}</span>
+          </a>
+        </li>
+        {% end %}
+      </ul>
+    </div>
+    <div class="tab-content">
+      {% for child_key, child_category in pairs(category.children) do%}
+      <div class="tab-pane fade {% if child_key == 1 then %} show active{% end %}"
+        id="tab-{{category.code}}-{{child_category.code}}">
+        <div class="row links">
+          {% for link_key, link in pairs(child_category.links) do %}
+          <div class="col-6 col-md-4 col-lg-3 col-xl-5a col-xxl-6a">
+            <a class="d-flex link" data-link="{{link.url}}" data-bs-trigger="hover" data-bs-toggle="tooltip"
+              data-bs-placement="bottom" data-bs-title="{{link.description}}">
+              <img src="{{link.icon}}" alt="{{link.name}}">
+              <div class="flex-fill d-flex flex-column link-body">
+                <span class="link-name">{{link.name}}</span>
+                <span class="link-description">{{link.description}}</span>
+              </div>
+              <i class="bi bi-arrow-right-circle open-link" data-link="{{link.url}}" data-bs-trigger="click hover focus"
+                data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="直达"></i>
+            </a>
+          </div>
+          {% end %}
+        </div>
+      </div>
+      {% end %}
+    </div>
+    {% end %}
+  </div>
+  {% end %}
+  <div class="d-flex flex-column container-fluid category-links friend-links" id="friend-links">
+    <div class="title">
+      <i class="bi bi-link"></i>
+      <span>友情链接</span>
+    </div>
+    <div class="friends">
+      <ul class="d-flex flex-wrap">
+        {% for key, friend in pairs(friends) do %}
+        <li>
+          <a class="friend" href="{{friend.url}}" title="{{friend.description}}">
+            {{friend.name}}
+          </a>
+        </li>
+        {% end %}
+      </ul>
+    </div>
+  </div>
+</div>

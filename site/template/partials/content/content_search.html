@@ -1,0 +1,32 @@
+<div class="d-flex flex-column container content-search">
+  <ul class="nav justify-content-center search-menu">
+    {% for key, category in pairs(content_search) do%}
+    <li class="nav-item">
+      <a class="nav-link {% if key == 1 then %} active{% end %}" data-bs-toggle="pill" href="#content-search-tab-{{category.code}}-items">
+        {{category.name}}
+      </a>
+    </li>
+    {% end %}
+  </ul>
+  <div class="input-group">
+    <input type="text" id="search-text" class="form-control" placeholder="输入关键字搜索" autocomplete="off">
+    <button class="btn btn-outline-secondary submit" id="search-btn" data-url="https://www.baidu.com/s?wd="><i class="bi bi-search"></i></button>
+  </div>
+  <div class="tab-content">
+    {% for key, category in pairs(content_search) do %}
+    <div class="tab-pane fade {% if key == 1 then %} show active{% end %}"
+      id="content-search-tab-{{category.code}}-items">
+      <ul class="nav justify-content-center">
+        {% for child_key, child_category in pairs(category.children) do %}
+        <li class="nav-item">
+          <a class="nav-link {% if child_key == 1 then %} active{% end %}" data-bs-toggle="pill"
+            data-description="{{child_category.description}}" data-url="{{child_category.url}}">
+            {{child_category.name}}
+          </a>
+        </li>
+        {% end %}
+      </ul>
+    </div>
+    {% end %}
+  </div>
+</div>
